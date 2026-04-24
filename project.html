@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Lionel Athallah</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* === TEMA WARNA KEVIN GARNETT SLAM #58 (BLUE, GREEN, WHITE) === */
+        :root {
+            --bg-white: #f0f2f5;      /* Putih Silver */
+            --timber-blue: #005083;   /* Biru Timberwolves */
+            --timber-green: #7ac143;  /* Hijau Lime Aksen */
+            --text-dark: #111111;     /* Hitam Teks */
+            --card-border: #005083;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bg-white);
+            /* Efek halftone halus agar tidak terlalu polos */
+            background-image: radial-gradient(var(--timber-blue) 0.5px, transparent 0.5px);
+            background-size: 30px 30px;
+            background-opacity: 0.1;
+            color: var(--text-dark);
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* --- ANIMASI --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--bg-white);
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 15px solid var(--timber-blue);
+            position: relative;
+        }
+
+        header::before {
+            content: 'SLAM';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18rem;
+            color: var(--timber-blue);
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        header h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 8rem;
+            margin: 0;
+            color: var(--timber-blue);
+            position: relative;
+            z-index: 1;
+            text-shadow: 5px 5px 0px var(--timber-green);
+            animation: fadeInUp 0.8s ease-out;
+            letter-spacing: -2px;
+        }
+
+        header h1:hover {
+            animation: glitch 0.3s infinite;
+            color: var(--timber-green);
+            text-shadow: 5px 5px 0px var(--timber-blue);
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background-color: var(--timber-blue);
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 5px solid var(--timber-green);
+        }
+
+        nav a {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: white;
+            text-decoration: none;
+            padding: 5px 25px;
+            transition: 0.3s;
+            border: 2px solid transparent;
+        }
+
+        nav a:hover {
+            background: white;
+            color: var(--timber-blue);
+            transform: skewX(-15deg);
+            box-shadow: 5px 5px 0px var(--timber-green);
+        }
+
+        /* --- CONTAINER UTAMA (SINGLE COLUMN) --- */
+        .main-wrapper {
+            max-width: 1000px; /* Dipersempit agar proporsional tanpa galeri */
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .project-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4.5rem;
+            color: var(--timber-blue);
+            text-align: center;
+            margin-bottom: 40px;
+            background: var(--timber-green);
+            display: inline-block;
+            padding: 0 30px;
+            transform: rotate(-1deg);
+            box-shadow: 8px 8px 0px var(--timber-blue);
+        }
+
+        .project-container-center {
+            text-align: center;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        /* --- CARD STYLE --- */
+        .project-card {
+            background: white;
+            border: 6px solid var(--timber-blue);
+            padding: 25px;
+            text-align: left;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: fadeInUp 1s both;
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.1);
+        }
+
+        .project-card:hover {
+            transform: scale(1.03);
+            border-color: var(--timber-green);
+            box-shadow: 15px 15px 0px var(--timber-blue);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 6px solid var(--timber-blue);
+            margin-bottom: 20px;
+            filter: grayscale(20%);
+        }
+
+        .project-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            margin: 0 0 10px;
+            color: var(--timber-blue);
+        }
+
+        .project-card p {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .project-card a {
+            display: block;
+            text-align: center;
+            background: var(--timber-blue);
+            color: white;
+            text-decoration: none;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            padding: 12px;
+            transition: 0.2s;
+        }
+
+        .project-card a:hover {
+            background: var(--timber-green);
+            color: var(--timber-blue);
+        }
+
+        /* --- MUSIC PLAYER --- */
+        .music-player {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: white;
+            border: 4px solid var(--timber-blue);
+            color: var(--timber-blue);
+            padding: 15px 25px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 6px 6px 0px var(--timber-green);
+            z-index: 9999;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px;
+            border-top: 15px solid var(--timber-blue);
+            background: white;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: var(--timber-blue);
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 4rem; }
+            .project-section h2 { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<audio id="bg-music" loop>
+    <source src="Shook Ones, Pt  II (Instrumental).mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-player" id="music-btn">▶ PLAY SONG</button>
+
+<header>
+    <h1>PORTOFOLIO LIONEL ATHALLAH</h1>
+    <p style="color:var(--timber-blue); font-weight:bold; letter-spacing:3px;"></p>
+</header>
+
+<nav>
+    <a href="body.html">BERANDA</a>
+    <a href="profil.html">PROFIL</a>
+    <a href="video.html">VIDEO</a>
+    <a href="project.html">PROJECT</a>
+</nav>
+
+<div class="main-wrapper">
+    <div class="project-container-center">
+        <h2>PROJECT</h2>
+    </div>
+    
+    <div class="project-grid">
+        <div class="project-card" style="animation-delay: 0.1s;">
+            <h3>Video Argumentasi</h3>
+            <p>Menganalisis peran IC di Al Haraki dalam mengembangkan keterampilan.</p>
+            <a href="video.html">WATCH</a>
+        </div>
+
+        <div class="project-card" style="animation-delay: 0.3s;">
+            <h3>Web Portofolio</h3>
+            <p>Mendesain website portofolio.</p>
+            <a href="body.html">EXPLORE SITE</a>
+        </div>
+
+        <div class="project-card" style="animation-delay: 0.5s;"
+            <h3>Game Edukasi</h3>
+            <p>Project interaktif menggunakan Scratch </p>
+            <a href="https://scratch.mit.edu/projects/1162388991/fullscreen/" target="_blank">PLAY GAME</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>Ujian Praktik Terintegrasi | SMPIT Al Haraki | Lionel Athallah @ 2026</p>
+</footer>
+
+<script>
+    const music = document.getElementById('bg-music');
+    const btn = document.getElementById('music-btn');
+    let playing = false;
+
+    btn.addEventListener('click', () => {
+        if (!playing) {
+            music.play();
+            btn.innerText = "⏸ PAUSE SONG";
+            btn.style.background = "var(--timber-green)";
+        } else {
+            music.pause();
+            btn.innerText = "▶ PLAY SONG";
+            btn.style.background = "white";
+        }
+        playing = !playing;
+    });
+</script>
+
+</body>
+</html>

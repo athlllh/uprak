@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Lionel Athallah</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* === TEMA ORLANDO MAGIC RETRO (BLUE & BLACK) === */
+        :root {
+            --magic-blue: #0077C0;
+            --magic-black: #000000;
+            --magic-silver: #C4CED4;
+            --white: #FFFFFF;
+            --paper-white: #F4F4F0;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--magic-blue);
+            /* Efek Garis Halus (Pinstripes) khas Jersey Orlando Magic */
+            background-image: linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 30px 100%;
+            color: var(--magic-black);
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* --- HEADER (SLAM STYLE) --- */
+        header {
+            background-color: var(--magic-black);
+            color: var(--white);
+            text-align: center;
+            padding: 60px 20px 40px;
+            position: relative;
+            border-bottom: 10px solid var(--magic-blue);
+            overflow: hidden;
+        }
+
+        header::before {
+            content: 'SLAM';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 280px;
+            color: var(--magic-blue);
+            opacity: 0.3;
+            z-index: 0;
+            letter-spacing: -5px;
+        }
+
+        header h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 5.5rem;
+            margin: 0;
+            color: var(--white);
+            position: relative;
+            z-index: 1;
+            text-shadow: 6px 6px 0px var(--magic-blue);
+            line-height: 0.9;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            background: var(--white);
+            color: var(--magic-blue);
+            display: inline-block;
+            padding: 8px 25px;
+            margin-top: 15px;
+            font-weight: bold;
+            transform: rotate(2deg);
+            border: 4px solid var(--magic-blue);
+            box-shadow: 6px 6px 0px var(--magic-black);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background-color: var(--white);
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            border-bottom: 6px solid var(--magic-black);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: var(--magic-black);
+            text-decoration: none;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            padding: 10px 25px;
+            background: var(--white);
+            border: 4px solid var(--magic-black);
+            box-shadow: 5px 5px 0px var(--magic-blue);
+            transition: 0.1s;
+        }
+
+        nav a:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0px var(--magic-black);
+            background: var(--magic-blue);
+            color: white;
+        }
+
+        /* --- CONTAINER PROFIL --- */
+        .container {
+            width: 85%;
+            max-width: 950px;
+            margin: 50px auto;
+            background-color: var(--paper-white);
+            padding: 50px;
+            border: 10px solid var(--magic-black);
+            box-shadow: 25px 25px 0px var(--white);
+            position: relative;
+        }
+
+        .container::after {
+            content: "TMAC";
+            position: absolute;
+            bottom: -35px;
+            right: 10px;
+            font-family: 'Bebas Neue';
+            font-size: 4rem;
+            color: rgba(255,255,255,0.5);
+            z-index: -1;
+        }
+
+        /* Frame Foto Profil */
+        .profile-photo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-photo img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border: 8px solid var(--magic-black);
+            box-shadow: 12px 12px 0px var(--magic-blue);
+            transition: 0.4s;
+        }
+
+        .profile-photo img:hover {
+            transform: rotate(-3deg) scale(1.05);
+            box-shadow: 5px 5px 20px rgba(0,119,192,0.5);
+        }
+
+        /* Text Styling */
+        .content-text h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            color: white;
+            background-color: var(--magic-blue);
+            display: inline-block;
+            padding: 5px 25px;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border: 4px solid var(--magic-black);
+            box-shadow: 6px 6px 0px var(--magic-black);
+            text-transform: uppercase;
+        }
+
+        .content-text p {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            font-weight: bold;
+            padding: 20px;
+            border-right: 10px solid var(--magic-blue);
+            background: var(--white);
+            border: 3px solid var(--magic-silver);
+            margin-bottom: 25px;
+        }
+
+        /* --- FLOATING MUSIC BUTTON --- */
+        .music-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--magic-black);
+            color: var(--white);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            border: 4px solid var(--magic-blue);
+            box-shadow: 8px 8px 0px var(--white);
+            cursor: pointer;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .music-toggle:hover {
+            background-color: var(--magic-blue);
+            box-shadow: 4px 4px 0px var(--magic-black);
+            transform: scale(1.05);
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        footer {
+            background-color: var(--magic-black);
+            color: var(--white);
+            text-align: center;
+            padding: 40px;
+            margin-top: 80px;
+            border-top: 12px solid var(--magic-blue);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<audio id="bg-music" loop>
+    <source src="Shook Ones, Pt  II (Instrumental).mp3" type="audio/mpeg">
+</audio>
+
+<button id="music-btn" class="music-toggle">
+    <span id="music-icon">▶</span> <span id="music-text">PLAY SONG</span>
+</button>
+
+<header>
+    <h1>PORTOFOLIO LIONEL ATHALLAH</h1>
+    <p>ORL. MAGIC</p>
+</header>
+
+<nav>
+    <a href="body.html">Beranda</a>
+    <a href="profil.html">Profil</a>
+    <a href="video.html">Video</a>
+    <a href="project.html">My Project</a>
+</nav>
+
+<div class="container reveal">
+
+    <div class="profile-photo">
+        <img src="ts profile.jpg" alt="Foto Profil">
+        <p style="font-family:'Bebas Neue'; font-size:1.8rem; color:var(--magic-blue); margin-top:15px; letter-spacing:1px;">
+            LIONEL ATHALLAH
+        </p>
+    </div>
+
+    <div class="content-text">
+        <h2 class="reveal">Profil Singkat</h2>
+        <p class="reveal">
+            <i>Lionel Athallah Ramadhan, 9 Al A'laa, SMPIT Al Haraki</i>
+        </p>
+
+        <h2 class="reveal">Tentang Saya</h2>
+        <p class="reveal">
+            <i>Nama saya Lionel Athallah Ramadhan. Saya lahir di Depok tanggal 2 April tahun 2011, saya berusia 15 tahun. Saya bersekolah di SMPIT Al Haraki di Kelas 9.</i>
+        </p>
+
+        <h2 class="reveal">Minat dan Bakat</h2>
+        <p class="reveal">
+            <i>Minat atau hobi saya adalah bermain futsal dan juga bermain basket</i>
+        </p>
+
+        <h2 class="reveal">Cita-cita dan Harapan</h2>
+        <p class="reveal">
+            <i>Di masa depan nanti, saya ingin menjadi seorang dokter</i>
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    <p>Ujian Praktik Terintegrasi | SMPIT Al Haraki | Lionel Athallah @ 2026 </p>
+</footer>
+
+<script>
+    const bgMusic = document.getElementById('bg-music');
+    const musicBtn = document.getElementById('music-btn');
+    const musicIcon = document.getElementById('music-icon');
+    const musicText = document.getElementById('music-text');
+    let isPlaying = false;
+
+    bgMusic.volume = 0.4;
+
+    musicBtn.addEventListener('click', () => {
+        if (isPlaying) {
+            bgMusic.pause();
+            musicIcon.innerHTML = "▶";
+            musicText.innerHTML = "PLAY SONG";
+        } else {
+            bgMusic.play();
+            musicIcon.innerHTML = "⏸";
+            musicText.innerHTML = "NOW PLAYING: SHOOK ONES PT.II";
+        }
+        isPlaying = !isPlaying;
+    });
+
+    // Reveal Animation Script
+    window.addEventListener('scroll', () => {
+        let reveals = document.querySelectorAll('.reveal');
+        for (let i = 0; i < reveals.length; i++) {
+            let windowHeight = window.innerHeight;
+            let revealTop = reveals[i].getBoundingClientRect().top;
+            if (revealTop < windowHeight - 100) {
+                reveals[i].classList.add('active');
+            }
+        }
+    });
+    window.dispatchEvent(new Event('scroll'));
+</script>
+
+</body>
+</html>
